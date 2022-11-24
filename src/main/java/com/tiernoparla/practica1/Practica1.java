@@ -42,8 +42,14 @@ public class Practica1 {
             break;
         }// if
     }// for
-        
-        
+    
+    
+    
+    for (int i = 0; i < mensaje2.length; i++) {
+        System.out.println(mensaje2[i]);
+            
+    }
+    
     
         
     // ACCIONES DEL NOISE
