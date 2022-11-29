@@ -8,7 +8,7 @@ public class RefactorizarSimulacro {
            
         Scanner sc = new Scanner(System.in);
 
-        int N = 8;
+        int N = 4;
         int tab[] = new int[N];
 
         int Position = 0;
@@ -33,7 +33,7 @@ public class RefactorizarSimulacro {
 
             jugadaDeMachine(Position_machine, N, tab, Machine);
 
-            ganador = verQuienGana(tab, ganador);
+            ganador = verQuienGana(tab, ganador, Player, Machine);
             
             if (ganador == false) {
                 break;
@@ -41,7 +41,9 @@ public class RefactorizarSimulacro {
         }// for
     }// juegoTresEnRaya
 
-    public static boolean verQuienGana(int[] tab, boolean ganador) {
+    public static boolean verQuienGana(int[] tab, boolean ganador,int Player,
+                                       int Machine) {
+        int contador = 0;
         for (int j = 1; j < tab.length - 1; j++) {
             if (tab[j] == 7) {
                 if (tab[j] - tab[j - 1] == tab[j + 1] - tab[j]) {
@@ -58,6 +60,16 @@ public class RefactorizarSimulacro {
                 }// if
             }// if
         }// for
+        for (int i = 0; i < tab.length; i++) {
+            if (tab[i] == Player || tab[i] == Machine) {
+                contador++;
+                if (contador == tab.length) {
+                    System.out.println("EMPATE");
+                    ganador = false;
+                    break;
+                }// if 
+            }// if
+        }
         return ganador;
     }// verQuienGana
 
@@ -94,8 +106,13 @@ public class RefactorizarSimulacro {
         System.out.println("Dame una posicion del 0 al " + (N-1) + ": ");
         Position = sc.nextInt();
         
+        while (Position >= tab.length || Position < 0){
+            System.out.println("Esa posicion no es valida, dame otra posicion: ");
+            Position = sc.nextInt();
+        }
+        
         while (tab[Position] == 2 || tab[Position] == 7) {
-            System.out.println("Posicion usada, pon otra posicion");
+            System.out.println("Posicion usada, pon otra posicion: ");
             Position = sc.nextInt();
         }// while
         
