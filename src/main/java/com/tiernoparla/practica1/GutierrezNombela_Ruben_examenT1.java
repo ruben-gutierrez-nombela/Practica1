@@ -2,7 +2,7 @@ package com.tiernoparla.practica1;
 
 import java.util.Scanner;
 
-public class RefactorizarSimulacro {
+public class GutierrezNombela_Ruben_examenT1 {
 
     public static void main(String[] args) {
 
@@ -24,9 +24,9 @@ public class RefactorizarSimulacro {
     public static void juegoTresEnRaya(int[] tab, int N, int Position,
             Scanner sc, int Player, int Position_machine, int Machine,
             boolean ganador) {
-        
+
         for (int i = 0; i < tab.length; i++) {
-            
+
             jugadaDePlayer(N, Position, sc, tab, Player);
 
             System.out.println("");
@@ -45,7 +45,7 @@ public class RefactorizarSimulacro {
 
     public static boolean verQuienGana(int[] tab, boolean ganador, int Player,
             int Machine) {
-        
+
         int contador = 0;
         for (int j = 1; j < tab.length - 1; j++) {
             if (tab[j] == 7) {
@@ -78,7 +78,7 @@ public class RefactorizarSimulacro {
 
     public static void jugadaDeMachine(int Position_machine, int N, int[] tab,
             int Machine) {
-        
+
         for (int j = 0; j < 9999; j++) {
 
             Position_machine = (int) (Math.random() * N);
@@ -89,7 +89,7 @@ public class RefactorizarSimulacro {
                 Position_machine = (int) (Math.random() * N);
             }// while
         }// for
-        
+
         System.out.println("El ordenador ha colocado su ficha "
                 + "en la posicion " + Position_machine);
 
@@ -127,4 +127,4 @@ public class RefactorizarSimulacro {
             System.out.print(tab[j]);
         }// for
     }// jugadaDePlayer
-}// RefactorizarSimulacro
+}// CLASS
