@@ -122,15 +122,50 @@ public class Practica1 {
         System.out.println("---------------------------");
         System.out.println("---------------------------");
         System.out.println("");
+        System.out.println("Mensaje con bits de paridad calculados");
         System.out.println(arrlist);
 
-        // ACCIONES DEL NOISE
-        // código
-        // ACCIONES DEL RECIEVER
-        // código
-        // MÉTODO 1 QUE CALCULA TAL
-        // código
-        // MÉTODO 2 QUE CALCULA CUAL    
-        // código
+        //PARTE 3 MODIFICACIONES DEL MENSAJE
+        // Provocar los cambios aleatorios
+        int aa = (int)(Math.random()* a);
+        long arr2 = arrlist.get(aa);
+        double BB = Math.random();
+        int count = 0;
+        
+        if (BB <= 0.33) {
+            for (int i = 0; i < 2; i++) {
+                aa = (int) (Math.random() * a);
+                arr2 = arrlist.get(aa);
+                count++;
+                if (arr2 == 0) {
+                    arrlist.set(aa, (long)1) ;
+                    continue;
+                }// if
+                // if
+                if (arr2 == 1) {
+                    arrlist.set(aa, (long)0) ;
+                    continue;
+                }// if
+            }// for
+        }// ifç
+        if (BB > 0.33 && BB <= 0.66) {
+            count++;
+            if (arr2 == 0) {
+                arrlist.set(aa, (long)1) ;
+            }// if
+            if (arr2 == 1) {
+                arrlist.set(aa, (long)0) ;
+            }// if
+        }// if
+        
+        System.out.println("---------------------------");
+        System.out.println("---------------------------");
+        System.out.println("");
+        System.out.println("Mensaje con cambios realizados");
+        System.out.println(arrlist);
+        
+        
+        // COMPROBAR LOS ERRORES
+        
     }// main 
 }// Practica 1
