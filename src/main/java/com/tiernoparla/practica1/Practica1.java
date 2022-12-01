@@ -163,9 +163,54 @@ public class Practica1 {
         System.out.println("");
         System.out.println("Mensaje con cambios realizados");
         System.out.println(arrlist);
+        System.out.println("---------------------------");
+        System.out.println("---------------------------");
+        System.out.println("");
         
         
         // COMPROBAR LOS ERRORES
         
+        int error1 = 0;
+        long z = 0;
+        int incremental = 1;
+        int posicion = 1;
+        long sum = 0;
+        
+        for (int i = 0; i < bitspar; i++) {
+            for (int j = 0; j < arrlist.size(); j++) {
+                String strarr = Long.toBinaryString(j);
+                long temp = Long.parseLong(strarr);
+                if (temp / incremental % 2 == 1) {
+                    z = z + arrlist.get(j);
+                }// if
+            }// for
+            
+            if (z % 2 == 1) {
+                error1 = error1 + posicion;
+            }// if
+            
+            z = 0;
+            posicion = posicion * 2;
+            incremental = incremental * 10;
+        }// for
+        
+        for (int i = 0; i < arrlist.size(); i++) {
+            sum += arrlist.get(i);  
+        }
+        
+        for (int i = 0; i < 1; i++) {
+            if (error1 > 0 && sum % 2 == 0) {
+                System.out.println("Hay 2 errores");
+                break;
+            }// if
+            if (sum % 2 != 0 && arrlist.get(0) == 0) {
+                System.out.println("Hay 1 error en la posicion 0");
+                break;
+            }// if
+            if (error1 == 0) {
+                System.out.println("No hay errores");
+                break;    
+            }// if
+        }// for  
     }// main 
 }// Practica 1
