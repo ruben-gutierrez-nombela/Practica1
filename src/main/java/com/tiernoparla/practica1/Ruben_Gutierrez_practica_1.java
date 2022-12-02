@@ -2,7 +2,7 @@ package com.tiernoparla.practica1;
 
 import java.util.ArrayList;
 
-public class Practica1 {
+public class Ruben_Gutierrez_practica_1 {
 
     public static void main(String[] args) {
 
